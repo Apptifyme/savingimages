@@ -3,7 +3,6 @@
 //  SavingImagesTutorial
 //
 //  Created by Sidwyn Koh on 29/1/12.
-//  Copyright (c) 2012 Parse. All rights reserved.
 //
 //  Photo credits: Stock Exchange (http://www.sxc.hu/)
 
