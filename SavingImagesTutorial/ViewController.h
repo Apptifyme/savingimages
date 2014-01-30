@@ -3,19 +3,21 @@
 //  SavingImagesTutorial
 //
 //  Created by Sidwyn Koh on 29/1/12.
+//  Copyright (c) 2012 Parse. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "MBProgressHUD.h"
 #include <stdlib.h> // For math functions including arc4random (a number randomizer)
 
-@interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, PF_MBProgressHUDDelegate>
+@interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MBProgressHUDDelegate>
 {
     IBOutlet UIScrollView *photoScrollView;
     NSMutableArray *allImages;
     
-    PF_MBProgressHUD *HUD;
-    PF_MBProgressHUD *refreshHUD;
+    MBProgressHUD *HUD;
+    MBProgressHUD *refreshHUD;
 }
 
 - (IBAction)refresh:(id)sender;

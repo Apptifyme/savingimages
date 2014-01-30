@@ -3,6 +3,7 @@
 //  SavingImagesTutorial
 //
 //  Created by Sidwyn Koh on 29/1/12.
+//  Copyright (c) 2012 Parse. All rights reserved.
 //
 //  Photo credits: Stock Exchange (http://www.sxc.hu/)
 
@@ -28,7 +29,7 @@
 - (IBAction)refresh:(id)sender
 {
     NSLog(@"Showing Refresh HUD");
-    refreshHUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
+    refreshHUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:refreshHUD];
 	
     // Register for HUD callbacks so we can remove it from the window at the right time
@@ -48,7 +49,7 @@
             if (refreshHUD) {
                 [refreshHUD hide:YES];
                 
-                refreshHUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
+                refreshHUD = [[MBProgressHUD alloc] initWithView:self.view];
                 [self.view addSubview:refreshHUD];
                 
                 // The sample image is based on the work by http://www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
@@ -56,7 +57,7 @@
                 refreshHUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
                 
                 // Set custom view mode
-                refreshHUD.mode = PF_MBProgressHUDModeCustomView;
+                refreshHUD.mode = MBProgressHUDModeCustomView;
                 
                 refreshHUD.delegate = self;
             }
@@ -156,7 +157,7 @@
         imagePicker.delegate = self;
         
         // Show image picker
-        [self presentModalViewController:imagePicker animated:YES];
+        [self presentViewController:imagePicker animated:YES completion:nil];
     }
     else{
         // Device has no camera
@@ -197,11 +198,11 @@
 {
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
     
-    HUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
     // Set determinate mode
-    HUD.mode = PF_MBProgressHUDModeDeterminate;
+    HUD.mode = MBProgressHUDModeDeterminate;
     HUD.delegate = self;
     HUD.labelText = @"Uploading";
     [HUD show:YES];
@@ -213,7 +214,7 @@
             [HUD hide:YES];
             
             // Show checkmark
-            HUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
+            HUD = [[MBProgressHUD alloc] initWithView:self.view];
             [self.view addSubview:HUD];
             
             // The sample image is based on the work by http://www.pixelpressicons.com, http://creativecommons.org/licenses/by/2.5/ca/
@@ -221,7 +222,7 @@
             HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
             
             // Set custom view mode
-            HUD.mode = PF_MBProgressHUDModeCustomView;
+            HUD.mode = MBProgressHUDModeCustomView;
             
             HUD.delegate = self;
 
@@ -326,7 +327,7 @@
     PhotoDetailViewController *pdvc = [[PhotoDetailViewController alloc] init];
     
     pdvc.selectedImage = selectedPhoto;
-    [self presentModalViewController:pdvc animated:YES];
+    [self presentViewController:pdvc animated:YES completion:nil];
 }
 
 
@@ -380,7 +381,7 @@
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
     // Dismiss controller
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
     
     // Resize image
     UIGraphicsBeginImageContext(CGSizeMake(640, 960));
@@ -396,7 +397,7 @@
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods
 
-- (void)hudWasHidden:(PF_MBProgressHUD *)hud {
+- (void)hudWasHidden:(MBProgressHUD *)hud {
     // Remove HUD from screen when the HUD hides
     [HUD removeFromSuperview];
 	HUD = nil;

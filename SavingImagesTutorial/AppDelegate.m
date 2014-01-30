@@ -3,6 +3,7 @@
 //  SavingImagesTutorial
 //
 //  Created by Sidwyn Koh on 29/1/12.
+//  Copyright (c) 2012 Parse. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -21,7 +22,7 @@
     // ****************************************************************************
     // Fill in with your Parse credentials:
     // ****************************************************************************
-    [Parse setApplicationId:@"your_application_id" clientKey:@"your_client_key"];
+    // [Parse setApplicationId:@"YOUR_APPLICATION_ID" clientKey:@"YOUR_CLIENT_KEY"];
     
     // Wipe out old user defaults
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"objectIDArray"]){

@@ -3,6 +3,7 @@
 //  SavingImagesTutorial
 //
 //  Created by Sidwyn Koh on 29/1/12.
+//  Copyright (c) 2012 Parse. All rights reserved.
 //
 
 #import "PhotoDetailViewController.h"
@@ -13,7 +14,7 @@
 //Close the view controller
 - (IBAction)close:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
