@@ -1,5 +1,7 @@
-Saving Images Tutorial
+[Archive] Saving Images Tutorial
 =============================
+
+**Note:** *This repository is not under active development.*
 
 This Xcode project teaches you how to take a photo and upload it directly to Parse.
 
